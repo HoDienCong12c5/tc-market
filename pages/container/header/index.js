@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import {modalConfig} from '@/common/constant'
 import { DATA_USER } from '@/utils/firebaseConfig';
 import { setUserInfo } from '@/redux/slice/appSlice';
-const NavDesktop = dynamic(()=>import('./components/navDesktop'))
+import NavDesktop from './components/navDesktop';
 const ModalLogin = dynamic(()=>import('./components/ModalLogin'))
 const Header = () => {
   const router = useRouter()
@@ -64,7 +64,7 @@ const Header = () => {
     ]
     return (
       <>
-        <ImageNext width={50} height={50} src={images.landingPage.logo}/>
+        <ImageNext className='hover' onClick={()=>router.push('/')} width={50} height={50} src={images.landingPage.logo}/>
         <NavDesktop />
         {
           isSigned ? (

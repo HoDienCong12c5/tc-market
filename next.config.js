@@ -19,7 +19,10 @@ const nextConfig = {
     domains: ['ipfs.pantograph.app','ipfsgw.bountykinds.com','skywalker.infura-ipfs.io'],
   },
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName:true,
+      ssr:true
+    },
   },
   eslint: {
     // your project has ESLint errors.

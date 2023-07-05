@@ -1,24 +1,26 @@
-import React, { useMemo } from 'react'
+import React, { Suspense, useMemo } from 'react'
 
 import { Affix } from 'antd'
 import { styled } from 'styled-components'
 import dynamic from 'next/dynamic'
 import SEO from './seo'
-const MyModal = dynamic(()=>import('@/components/MyModal'))
-const Header = dynamic(()=>import('./header'))
-const Footer = dynamic(()=>import('./Footer'))
+import Header from './header'
+import MyModal from '@/components/MyModal'
+import Footer from './Footer'
+// const MyModal = dynamic(()=>import('@/components/MyModal'))
+// const Footer = dynamic(()=>import('./Footer'))
 const ContainerApp = styled.div`
   max-width: 1550px;
   padding: 0px 50px;
   
 `;
 const Container = ({children}) => {
-  const modalComponent = useMemo(() => <MyModal />, []);
   return (
     <>
       <SEO />
       <Affix >
         <Header />
+
       </Affix>
       <main className={'main-body'}>
         <ContainerApp >
@@ -26,7 +28,10 @@ const Container = ({children}) => {
         </ContainerApp>
       </main>
       <Footer />
-      {modalComponent}
+      <Suspense >
+        <MyModal />
+
+      </Suspense>
     </>
   )
 }
