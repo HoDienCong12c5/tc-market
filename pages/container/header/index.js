@@ -32,6 +32,7 @@ const Header = () => {
     if(modal && isSigned){
       closeModal()
     }
+    return ()=>{}
 
   }, [isSigned]);
   const handleSignOut = async () => {
@@ -39,9 +40,9 @@ const Header = () => {
   }
   const handleLogin = async () => {
     setUserInfo({name:'diencong'})
-    // openModal({
-    //   content:<ModalLogin />,
-    // })
+    openModal({
+      content:<ModalLogin />,
+    })
   }
   const renderDesktop = () => {
     const items = [

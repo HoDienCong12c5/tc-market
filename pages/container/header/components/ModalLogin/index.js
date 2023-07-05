@@ -46,7 +46,6 @@ const ModalLogin = () => {
   }, [isSigned])
 
   useEffect(() => {
-
     return ()=>{
       observer.removeListener(OBSERVER_KEY.LOGIN)
     }
