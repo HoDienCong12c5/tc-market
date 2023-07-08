@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const userUserInfo = () => {
-  const userInfo = useSelector(state=>state.userInfo)
+  const userInfo = useSelector(state=>state.app.userInfo)
   return {
     isSigned:!!userInfo,
     name: userInfo?.name || null,

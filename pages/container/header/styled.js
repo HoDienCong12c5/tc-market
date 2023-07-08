@@ -1,3 +1,4 @@
+import ButtonBasic from '@/components/ButtonBasic';
 import ImageNext from '@/components/ImageNext';
 import styled from 'styled-components';
 export const ContainerBaseHeader = styled.div`
@@ -15,5 +16,11 @@ export const ContainerHeader = styled.div`
 export const LogoHeader = styled(ImageNext)`
     height: 40px;
     width: 40px;
+`
+export const BtnAccUser = styled(ButtonBasic)`
+   display: flex;
+   align-items: center;
+   border-radius: 0px;
+   
 `
 export default ()=>{};

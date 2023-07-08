@@ -12,7 +12,7 @@ const localeVN = {
   messages: MessageVN
 }
 
-const initialState = {
+export const initialState = {
   modal: null,
   userInfo:null,
   token:null,
@@ -31,9 +31,6 @@ export const appSlice = createSlice({
     },
     setUserInfo: (state, action) => {
       saveDataLocal(KEY_STORE.SET_USER,action.payload)
-      console.log('====================================');
-      console.log({d:action.payload});
-      console.log('====================================');
       state.userInfo = action.payload
     },
     setLanguage: (state, action) => {

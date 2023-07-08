@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import 'antd/dist/reset.css';
 import 'aos/dist/aos.css'
 import '../styles/styleBasic.scss'
-import React from 'react';
+import React, { useEffect } from 'react';
 import ThemeSC from '@/components/ThemsSC';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
@@ -11,6 +11,7 @@ import Container from './container';
 import ReduxConnectIntl from '@/static/lang';
 function MyApp({ Component, pageProps }) {
   const [queryClient] = React.useState(() => new QueryClient())
+
 
   return (
     <ThemeSC>

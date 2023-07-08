@@ -33,7 +33,8 @@ export const saveDataLocal = (key, data) => {
 }
 
 export const getDataLocal = (key) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined') {
+    console.log({js:localStorage.getItem(key)});
     return JSON.parse(localStorage.getItem(key))
   } else {
     return false

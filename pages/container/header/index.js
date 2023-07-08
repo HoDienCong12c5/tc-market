@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { ContainerBaseHeader, ContainerHeader } from './styled';
+import { BtnAccUser, ContainerBaseHeader, ContainerHeader } from './styled';
 import Media from 'react-media'
 import { images } from '@/common/images';
 import ImageNext from '@/components/ImageNext';
 import dynamic from 'next/dynamic';
 import useModal from '@/hook/useModal';
 import { useSelector } from 'react-redux';
-import userUserInfo from '@/hook/useUserInfor';
+import useUserInfo from '@/hook/useUserInfor';
 import ButtonBasic from '@/components/ButtonBasic';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import styles from './style.module.scss'
 import { useRouter } from 'next/router';
-import {modalConfig} from '@/common/constant'
-import { DATA_USER } from '@/utils/firebaseConfig';
 import { setUserInfo } from '@/redux/slice/appSlice';
 import NavDesktop from './components/navDesktop';
+// import ModalLogin from './components/ModalLogin';
 const ModalLogin = dynamic(()=>import('./components/ModalLogin'))
 const Header = () => {
   const router = useRouter()
 
   const {openModal,closeModal} = useModal()
-  const{isSigned,name} = userUserInfo()
+  const{isSigned,name} = useUserInfo()
   const messages = useSelector(state=>state.app.language.messages)
   const modal = useSelector(state => state.app.modal)
 
@@ -74,13 +73,13 @@ const Header = () => {
               trigger={['click']}
               className={'hover'}
             >
-              <ButtonBasic className={styles['bnt-login']} style={{ background: '#f5f5f5', borderRadius: 0, border: '1px solid; black' }}>
+              <BtnAccUser className={styles['bnt-login']} >
                 <ImageNext className={'h-25 w-25 mr-5'} src={images.icon.avatarDefault}/>
                 <Space>
                   {name}
                   <DownOutlined />
                 </Space>
-              </ButtonBasic>
+              </BtnAccUser>
             </Dropdown>
           ) : (
             <ButtonBasic
