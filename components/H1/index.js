@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled } from 'styled-components';
 const H1 = styled.h1`
-  font-size: ${(props) => props.size}px;
-  text-transform: ${(props) => (props.transform ? 'uppercase' : 'lowercase')};
+  font-size: ${(props) => props.size}px !important;
+  text-transform: ${(props) => (props.transform ? 'uppercase' : 'auto')};
   @media screen and (max-width: 768px) {
-    font-size: ${(props) => props.size - 2}px;
+    font-size: ${(props) => props.size - 2}px !important;
   }
 `;
 

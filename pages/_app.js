@@ -3,8 +3,7 @@ import '../styles/globals.css'
 import 'antd/dist/reset.css';
 import 'aos/dist/aos.css'
 import '../styles/styleBasic.scss'
-import React, { useEffect } from 'react';
-import ThemeSC from '@/components/ThemsSC';
+import React, { } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import Container from './container';
@@ -14,21 +13,18 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <ThemeSC>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Provider store={store}>
-            <ReduxConnectIntl >
-              <Container >
-                <Component {...pageProps} />
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Provider store={store}>
+          <ReduxConnectIntl >
+            <Container >
+              <Component {...pageProps} />
+            </Container>
+          </ReduxConnectIntl>
 
-              </Container>
-            </ReduxConnectIntl>
-
-          </Provider>
-        </Hydrate>
-      </QueryClientProvider>
-    </ThemeSC>
+        </Provider>
+      </Hydrate>
+    </QueryClientProvider>
   )
 
 }

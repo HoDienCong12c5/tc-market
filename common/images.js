@@ -25,7 +25,8 @@ const Img = {
 export const images = {
   landingPage:{
     logo: require('static/asset/image/LandingPage/Logo.jpg'),
-    product2:'/static/asset/image/LandingPage/product2.jpg'
+    product2:'/static/asset/image/LandingPage/product2.jpg',
+    coffee1:require('/static/asset/image/LandingPage/imageCoffe.jpeg')
   },
   home:{
     logo: '/static/asset/image/Home/logo.jpg',

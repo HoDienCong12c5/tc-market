@@ -12,6 +12,10 @@ export const ContainerHeader = styled.div`
   width: 100%;
   max-width: 1550px;
   padding: 0 50px;
+  @media screen and (max-width: 768px) {
+  padding: 0 20px;
+
+  }
 `
 export const LogoHeader = styled(ImageNext)`
     height: 40px;

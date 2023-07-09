@@ -5,6 +5,7 @@ import Aos from 'aos'
 import Media from 'react-media'
 import HeaderLadingPage from './component/header'
 import { useEffect } from 'react'
+import FooterBodyLandingPage from './component/footer'
 const LandingPage = () => {
   useEffect(() => {
     Aos.init({debounceDelay:3})
@@ -14,7 +15,7 @@ const LandingPage = () => {
   const renderDesktop = () => {
 
     return <ContainerLadingPage>
-      <HeaderLadingPage />
+      {/* <HeaderLadingPage /> */}
     </ContainerLadingPage>
   }
   const renderMobile = () => {
@@ -22,16 +23,23 @@ const LandingPage = () => {
     return <ContainerLadingPage>LandingPage</ContainerLadingPage>
   }
   return (
-    <Media query='(min-width: 768px)'>
-      {(match) => {
-        if (match) {
-          return renderDesktop()
-        }
-        return renderMobile()
-      }}
+    <>
+      <HeaderLadingPage />
+      <FooterBodyLandingPage />
+      <Media query='(min-width: 768px)'>
+        {(match) => {
+          if (match) {
+            return renderDesktop()
+          }
+          return renderMobile()
+        }}
 
-    </Media>
+      </Media>
+    </>
+
   )
 }
+
+
 
 export default LandingPage
