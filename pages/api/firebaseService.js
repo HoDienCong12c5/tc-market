@@ -1,4 +1,4 @@
-import { saveDataLocal } from '@/Utils/function';
+import { saveDataLocal } from '@/utils/function';
 import { KEY_STORE, OBSERVER_KEY } from '@/common/constant';
 import { setUserInfo } from '@/redux/slice/appSlice';
 import { store } from '@/redux/store';

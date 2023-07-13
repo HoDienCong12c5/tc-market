@@ -1,5 +1,5 @@
 import { BSC_RPC, URI_NFT, URL_NFT } from '@/common/constant';
-import { convertDateFormat, detectImageUrl, ellipsisAddress, viewExternal } from '@/Utils/function';
+import { convertDateFormat, detectImageUrl, ellipsisAddress, viewExternal } from '@/utils/function';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';

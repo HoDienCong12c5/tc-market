@@ -1,4 +1,4 @@
-import { isErrorRpc, isNotEnoughGas, isUserDeniedTransaction, showNotification } from '@/Utils/function'
+import { isErrorRpc, isNotEnoughGas, isUserDeniedTransaction, showNotification } from '@/utils/function'
 import { useWorkModal } from './useModal'
 
 const useCallBackReject = () => {

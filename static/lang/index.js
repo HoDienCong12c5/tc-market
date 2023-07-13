@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { KEY_STORE } from '@/common/constant';
 import { initialState, setLanguage, setUserInfo } from '@/redux/slice/appSlice';
 import { useCallback } from 'react';
-import { getDataLocal } from '@/Utils/function';
+import { getDataLocal } from '@/utils/function';
 
 // const mapStateToProps = state => ({
 //   locale: state.locale.lang,

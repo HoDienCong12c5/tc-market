@@ -1,5 +1,5 @@
 
-import { showNotification } from '@/Utils/function';
+import { showNotification } from '@/utils/function';
 import { OBSERVER_KEY } from '@/common/constant';
 import ButtonBasic from '@/components/ButtonBasic';
 import MyInput from '@/components/MyInput';

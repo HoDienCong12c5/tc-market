@@ -1,4 +1,4 @@
-import { formatDateTime } from '@/Utils/function'
+import { formatDateTime } from '@/utils/function'
 import React from 'react'
 import styled from 'styled-components';
 const InputCustom = styled.input`

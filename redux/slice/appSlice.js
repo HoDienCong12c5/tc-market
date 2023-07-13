@@ -1,4 +1,4 @@
-import { saveDataLocal } from '@/Utils/function'
+import { saveDataLocal } from '@/utils/function'
 import { KEY_STORE } from '@/common/constant'
 import { createSlice } from '@reduxjs/toolkit'
 import MessageEN from '@/static/lang/en.json'

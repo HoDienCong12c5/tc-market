@@ -1,5 +1,5 @@
 import { COLOR } from '@/common/constant';
-import { detectImageUrl, numberWithCommas, roundingNumber } from '@/Utils/function';
+import { detectImageUrl, numberWithCommas, roundingNumber } from '@/utils/function';
 import { Col, Row } from 'antd';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
