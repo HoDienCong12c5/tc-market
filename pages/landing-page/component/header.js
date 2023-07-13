@@ -72,7 +72,7 @@ const HeaderLadingPage = () => {
         <Row style={{ width: '100%' }} justify={'center'}>
           <Col span={13}>
             <ContainerSologon>
-              <H1Custom size={42} text={'Mlem Coffee Sắc hương Tây Nguyên'} />
+              <H1Custom size={42} text={'TC Coffee Sắc hương Tây Nguyên'} />
               <NormalText size={20} className="mb-15">
                 Chúng tôi tự hào là nơi bạn có thể tìm thấy những sản phẩm cà
                 phê chất lượng cao và độc đáo. Chúng tôi đặt tâm huyết vào việc
@@ -130,8 +130,8 @@ const HeaderLadingPage = () => {
     return (
       <div>
         <ContainerSologon>
-          <H1Custom size={42} text={'Mlem Coffee Sắc hương Tây Nguyên'} />
-          <NormalText>Mlem Coffee Sắc hương Tây Nguyên</NormalText>
+          <H1Custom size={42} text={'TC Coffee Sắc hương Tây Nguyên'} />
+          <NormalText>TC Coffee Sắc hương Tây Nguyên</NormalText>
           <BtnBuyNow>Mua ngay</BtnBuyNow>
         </ContainerSologon>
       </div>

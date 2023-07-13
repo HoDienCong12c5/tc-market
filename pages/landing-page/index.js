@@ -6,6 +6,7 @@ import Media from 'react-media'
 import HeaderLadingPage from './component/header'
 import { useEffect } from 'react'
 import FooterBodyLandingPage from './component/footer'
+import SEOLP from './seo'
 const LandingPage = () => {
   useEffect(() => {
     Aos.init({debounceDelay:3})
@@ -24,6 +25,7 @@ const LandingPage = () => {
   }
   return (
     <>
+      <SEOLP />
       <HeaderLadingPage />
       <FooterBodyLandingPage />
       <Media query='(min-width: 768px)'>
@@ -39,5 +41,7 @@ const LandingPage = () => {
 
   )
 }
-
+export const getInitialProps = ({query})=>{
+  return {props:{}}
+}
 export default LandingPage
