@@ -29,10 +29,10 @@ export const images = {
     coffee1:require('/static/asset/image/LandingPage/imageCoffe.jpeg')
   },
   home:{
-    logo: '/static/asset/image/Home/logo.jpg',
-    iconElement: '/static/asset/image/Home/iconElement.png',
-    iconOrigin:'/static/asset/image/Home/iconOrigin.png',
-    iconSmell:'/static/asset/image/Home/smell.png'
+    logo: require('/static/asset/image/Home/logo.jpg'),
+    iconElement:require('/static/asset/image/Home/iconElement.png'),
+    iconOrigin:require('/static/asset/image/Home/iconOrigin.png'),
+    iconSmell:require('/static/asset/image/Home/smell.png')
   },
   icon:{
     iconHistory:'/static/asset/image/Icon/iconHistory.png',

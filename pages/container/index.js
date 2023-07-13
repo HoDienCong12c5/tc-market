@@ -26,11 +26,9 @@ const Container = ({children}) => {
         <Header />
 
       </Affix>
-      <Suspense >
-        <ContainerApp >
-          {children}
-        </ContainerApp>
-      </Suspense>
+      <ContainerApp >
+        {children}
+      </ContainerApp>
 
       <Footer />
       <Suspense >

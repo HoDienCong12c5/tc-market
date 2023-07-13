@@ -2,12 +2,12 @@ import { images } from '@/common/images';
 import ButtonBasic from '@/components/ButtonBasic';
 import H1Custom from '@/components/H1';
 import ImageBase from '@/components/ImageBasic';
-import ImageNext from '@/components/ImageNext';
-import { NormalText } from '@/components/TextSize';
+import { MediumText, NormalText } from '@/components/TextSize';
 import { Col, Row } from 'antd';
 import React from 'react';
 import Media from 'react-media';
 import styled from 'styled-components';
+
 const ColCustom = styled(Col)`
   display: flex;
   flex-direction: column;
@@ -97,10 +97,16 @@ const HeaderLadingPage = () => {
           <Col span={13} offset={2}>
             <ContainerSologon>
               <ContainerElement>
-                <IcoElement src={images.icon.iconHeart}/>
-                <NormalText>
+                <IcoElement src={images.home.iconElement}/>
+                <div >
+                  <MediumText>
+                    Nguồn gốc
+                  </MediumText>
+                  <NormalText>
                   100% nguyên chất từ Tây Nguyên
-                </NormalText>
+                  </NormalText>
+                </div>
+
               </ContainerElement>
               <ContainerElement>
                 <IcoElement src={images.icon.iconHeart}/>
