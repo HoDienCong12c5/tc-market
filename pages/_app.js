@@ -3,14 +3,20 @@ import '../styles/globals.css'
 import 'antd/dist/reset.css';
 import 'aos/dist/aos.css'
 import '../styles/styleBasic.scss'
-import React, { } from 'react';
+import React, { useMemo } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import Container from './container';
 import ReduxConnectIntl from '@/static/lang';
 function MyApp({ Component, pageProps }) {
-  const [queryClient] = React.useState(() => new QueryClient())
-
+  // const [queryClient] = React.useState(() => new QueryClient())
+  const queryClient = useMemo(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        suspense: true,
+      },
+    },
+  }), [])
 
   return (
     <QueryClientProvider client={queryClient}>

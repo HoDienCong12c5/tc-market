@@ -41,7 +41,7 @@ const LandingPage = () => {
 
   )
 }
-export const getInitialProps = ({query})=>{
+export const getStaticProps = ({query})=>{
   return {props:{}}
 }
 export default LandingPage

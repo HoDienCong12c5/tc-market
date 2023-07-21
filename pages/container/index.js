@@ -7,15 +7,7 @@ import Header from './header'
 import MyModal from '@/components/MyModal'
 import Footer from './Footer'
 import { useRouter } from 'next/router'
-const ContainerApp = styled.main`
-   max-width: 1550px;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 50px);
-  background: #f2ece1 !important;
-  padding: 0px 50px;
 
-`;
 const Container = ({children}) => {
   const route = useRouter()
 
@@ -26,15 +18,12 @@ const Container = ({children}) => {
         <Header />
 
       </Affix>
-      <ContainerApp >
+      <main className='main-body' >
         {children}
-      </ContainerApp>
+      </main>
 
       <Footer />
-      <Suspense >
-        <MyModal />
-
-      </Suspense>
+      <MyModal />
     </>
   )
 }

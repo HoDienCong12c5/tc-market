@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styled from 'styled-components';
 const ContainerImageNext = styled.div`
-
+  overflow: hidden;
   
 `;
 const ImgCustom = styled(Image)`

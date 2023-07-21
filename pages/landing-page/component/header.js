@@ -16,6 +16,8 @@ const ColCustom = styled(Col)`
 `;
 const ImageLogo = styled(ImageBase)`
   border-radius: 25% 25% 35% 0%;
+  max-height: 550px !important;
+  width: auto !important;
 `;
 const ImageLogo2 = styled(ImageBase)`
   border-radius: 25%;
@@ -28,8 +30,10 @@ const ContainerImg = styled.div`
 const ContainerSologon = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding-top: 50px;
+  align-self: stretch;
+  justify-content: center;
 `;
 const BtnBuyNow = styled(ButtonBasic)`
   border-radius: 0px;
@@ -64,7 +68,10 @@ const IcoElement = styled(ImageBase)`
   height: auto;
   width: 100px;
 `
-const ContainerMobile = styled.div``;
+const TiteOther = styled(MediumText)`
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
 const HeaderLadingPage = () => {
   const renderDesktop = () => {
     return (
@@ -73,7 +80,7 @@ const HeaderLadingPage = () => {
           <Col span={13}>
             <ContainerSologon>
               <H1Custom size={42} text={'TC Coffee Sắc hương Tây Nguyên'} />
-              <NormalText size={20} className="mb-15">
+              <NormalText size={20} className="mb-15" style={{lineHeight:1.5}}>
                 Chúng tôi tự hào là nơi bạn có thể tìm thấy những sản phẩm cà
                 phê chất lượng cao và độc đáo. Chúng tôi đặt tâm huyết vào việc
                 chọn lọc những hạt cà phê tốt nhất từ các nguồn cung cấp uy tín
@@ -83,7 +90,7 @@ const HeaderLadingPage = () => {
             </ContainerSologon>
           </Col>
           <ColCustom span={9} offset={2}>
-            <ContainerImg>
+            <ContainerImg style={{maxHeight:600}}>
               <ImageLogo fullSize src={images.landingPage.coffee1} />
             </ContainerImg>
           </ColCustom>
@@ -95,13 +102,13 @@ const HeaderLadingPage = () => {
             </div>
           </ColCustom>
           <Col span={13} offset={2}>
-            <ContainerSologon>
+            <ContainerSologon style={{gap:40}}>
               <ContainerElement>
                 <IcoElement src={images.home.iconElement}/>
                 <div >
-                  <MediumText>
+                  <TiteOther>
                     Nguồn gốc
-                  </MediumText>
+                  </TiteOther>
                   <NormalText>
                   100% nguyên chất từ Tây Nguyên
                   </NormalText>
@@ -109,16 +116,26 @@ const HeaderLadingPage = () => {
 
               </ContainerElement>
               <ContainerElement>
-                <IcoElement src={images.icon.iconHeart}/>
-                <NormalText>
-                  100% nguyên chất từ Tây Nguyên
-                </NormalText>
+                <IcoElement src={images.home.iconOrigin}/>
+                <div >
+                  <TiteOther>
+                    Địa chỉ
+                  </TiteOther>
+                  <NormalText>
+                  Thôn Thanh giáo, Huyện Đức Cơ, Tình Gia Lai
+                  </NormalText>
+                </div>
               </ContainerElement>
               <ContainerElement>
-                <IcoElement src={images.icon.iconHeart}/>
-                <NormalText>
-                  100% nguyên chất từ Tây Nguyên
-                </NormalText>
+                <IcoElement src={images.home.iconSmell}/>
+                <div >
+                  <TiteOther>
+                  Hương vị
+                  </TiteOther>
+                  <NormalText>
+                  Đậm sắc tây nguyên, thơm ngon pha chút vị chua đặc trưng
+                  </NormalText>
+                </div>
               </ContainerElement>
             </ContainerSologon>
           </Col>
