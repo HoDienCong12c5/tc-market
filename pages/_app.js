@@ -3,13 +3,14 @@ import '../styles/globals.css'
 import 'antd/dist/reset.css';
 import 'aos/dist/aos.css'
 import '../styles/styleBasic.scss'
-import React, { useMemo } from 'react';
-import { Provider } from 'react-redux';
-import { store } from '@/redux/store';
+import React, { useMemo, useState } from 'react';
 import Container from './container';
 import ReduxConnectIntl from '@/static/lang';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, {persistor} from '@/redux/configureStore';
+import { Provider } from 'react-redux';
+
 function MyApp({ Component, pageProps }) {
-  // const [queryClient] = React.useState(() => new QueryClient())
   const queryClient = useMemo(() => new QueryClient({
     defaultOptions: {
       queries: {
@@ -21,14 +22,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Provider store={store}>
-          <ReduxConnectIntl >
-            <Container >
-              <Component {...pageProps} />
-            </Container>
-          </ReduxConnectIntl>
-
+        <Provider store={store} >
+          <PersistGate loading={null} persistor={persistor }>
+            <ReduxConnectIntl >
+              <Container >
+                <Component {...pageProps} />
+              </Container>
+            </ReduxConnectIntl>
+          </PersistGate>
         </Provider>
+
       </Hydrate>
     </QueryClientProvider>
   )

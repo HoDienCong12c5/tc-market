@@ -1,5 +1,3 @@
-import { saveDataLocal } from '@/utils/function'
-import { KEY_STORE } from '@/common/constant'
 import { createSlice } from '@reduxjs/toolkit'
 import MessageEN from '@/static/lang/en.json'
 import MessageVN from '@/static/lang/vn.json'
@@ -30,12 +28,9 @@ export const appSlice = createSlice({
       state.modal = action.payload
     },
     setUserInfo: (state, action) => {
-      saveDataLocal(KEY_STORE.SET_USER,action.payload)
       state.userInfo = action.payload
     },
     setLanguage: (state, action) => {
-      saveDataLocal(KEY_STORE.SET_LANGUAGE,action.payload)
-
       switch (action.payload) {
       case 'en':
         state.language = localeEN
