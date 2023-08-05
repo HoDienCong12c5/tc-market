@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
     defaultOptions: {
       queries: {
         suspense: true,
+        retry:2
       },
     },
   }), [])

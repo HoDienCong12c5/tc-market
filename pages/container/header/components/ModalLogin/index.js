@@ -1,5 +1,5 @@
 
-import { showNotification } from '@/utils/function';
+import { showNotiToastError, showNotiToastSuccess, showNotification } from '@/utils/function';
 import { OBSERVER_KEY } from '@/common/constant';
 import ButtonBasic from '@/components/ButtonBasic';
 import MyInput from '@/components/MyInput';
@@ -52,16 +52,20 @@ const ModalLogin = () => {
   }, [isSigned])
   const handleLogin = async () => {
     let login = false
-    console.log('====================================');
-    console.log({formData});
-    console.log('====================================');
-    await setLoadingLogin(true)
-    await firebaseService.login(formData.numberPhone,formData.passWord,saveLogin)
+    setLoadingLogin(true)
+    await firebaseService.login(
+      formData.numberPhone,
+      formData.passWord,
+      ()=>{login = true}
+    )
     if(!login){
-      closeModal()
-      showNotification('user name hoặc password chưa đúng')
+      showNotiToastError(message.noti.loginError)
+    }else{
+      showNotiToastSuccess(message.noti.loginSuccess)
     }
-    await setLoadingLogin(false)
+    closeModal()
+
+    setLoadingLogin(false)
   }
   const onRememberLogin = () => {
     setSaveLogin(!saveLogin)

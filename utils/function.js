@@ -1,6 +1,7 @@
 import { URL_NFT } from '@/common/constant'
 import { notification } from 'antd'
 import moment from 'moment'
+import { toast } from 'react-toastify'
 
 export const roundingNumber = (number, rounding = 7) => {
   const powNumber = Math.pow(10, parseInt(rounding))
@@ -104,5 +105,28 @@ export const numberWithCommas = (x) => {
 }
 export const formatDateTime = (value, format = 'YYYY-MM-DD') => {
   return moment(value).format(format)
+}
+export const showNotiToastError = (errorMessage = '') => {
+  toast.error(errorMessage, {
+    position: 'bottom-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+}
+
+export const showNotiToastSuccess = (message = '') => {
+  toast.success(message, {
+    position: 'bottom-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
 }
 export default () => { }

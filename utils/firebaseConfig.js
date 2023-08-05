@@ -1,3 +1,4 @@
+import { DATA_FIREBASE } from '@/common/constant';
 import FirebaseFun from '@/utils/FirebaseFun';
 import { initializeApp } from 'firebase/app';
 import {
@@ -39,8 +40,8 @@ class FirebaseConfig{
     return FirebaseFun(collectionData)
   }
 }
-export const DATA_COFFEE = FirebaseConfig.getFireStore('Coffee-Shop')
-export const DATA_USER = FirebaseConfig.getFireStore('user')
-export const DATA_CART = FirebaseConfig.getFireStore('user')
-export const DATA_AVATAR = FirebaseConfig.getFireStore('avatar')
-export default FirebaseConfig;
+export const FirebaseCoffee = FirebaseConfig.getFireStore(DATA_FIREBASE.coffee)
+export const FirebaseUser = FirebaseConfig.getFireStore(DATA_FIREBASE.user)
+export const FirebaseCart = FirebaseConfig.getFireStore(DATA_FIREBASE.cart)
+export const FirebaseAvatar = FirebaseConfig.getFireStore(DATA_FIREBASE.avatar)
+export const FirebaseContact = FirebaseConfig.getFireStore(DATA_FIREBASE.contact)

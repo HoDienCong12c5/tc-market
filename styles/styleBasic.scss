@@ -838,3 +838,20 @@ input#ratio {
   height: 0px !important;
   opacity: 0;
 }
+.ant-tooltip{ 
+  background-color: #f2ece1 !important;
+  background: #f2ece1 !important;
+  border-radius: 8px;
+  .ant-tooltip-content{
+    background-color: transparent !important;
+  }
+  .ant-tooltip-arrow{
+    background-color: transparent !important;
+  }
+  .ant-tooltip-arrow:before {
+    background: #f2ece1!important;
+  }
+  .ant-tooltip-inner{
+    background: transparent !important;
+  }
+}

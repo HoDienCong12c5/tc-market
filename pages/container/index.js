@@ -1,16 +1,13 @@
-import React, { Suspense, useEffect, useMemo, useState } from 'react'
-
+import React from 'react'
 import { Affix } from 'antd'
-import { styled } from 'styled-components'
 import SEO from './seo'
 import Header from './header'
 import MyModal from '@/components/MyModal'
 import Footer from './Footer'
-import { useRouter } from 'next/router'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Container = ({children}) => {
-  const route = useRouter()
-
   return (
     <>
       <SEO />
@@ -24,6 +21,18 @@ const Container = ({children}) => {
 
       <Footer />
       <MyModal />
+      <ToastContainer
+        position='bottom-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='colored'
+      />
     </>
   )
 }

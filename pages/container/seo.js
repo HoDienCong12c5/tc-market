@@ -1,31 +1,8 @@
 // import { DefaultSeo, NextSeo } from '';
 import Head from 'next/head'
 import React from 'react'
-const SEO_param = {
-  title: 'Cross - Tech',
-  description: 'Cross - Tech basic blockchain',
-  openGraph: {
-    url: 'https://crosstech-blockchain.vercel.app/',
-    title: 'Cross - Tech',
-    description: 'Cross - Tech basic blockchain',
-    images: [
-      {
-        url: 'http://ipfs.pantograph.app/ipfs/QmXn99vcRhrYdcZDQyunKPuwPABA2neYne6XLcVBLxrjTM',
-        width: 800,
-        height: 600,
-        alt: 'Image Alt Text',
-      },
-    ],
-    site_name: 'Cross - Tech',
-  },
-  twitter: {
-    handle: '@handle',
-    site: '@site',
-    cardType: 'summary_large_image',
-  },
-};
-const SEO = () => {
 
+const SEO = () => {
   return (
     <>
       {/* <DefaultSeo {...SEO_param} /> */}

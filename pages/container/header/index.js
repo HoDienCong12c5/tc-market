@@ -14,6 +14,7 @@ import styles from './style.module.scss'
 import { useRouter } from 'next/router';
 import { setUserInfo } from '@/redux/slice/appSlice';
 import NavDesktop from './components/navDesktop';
+import ReduxService from '@/redux/reduxService';
 // import ModalLogin from './components/ModalLogin';
 const ModalLogin = dynamic(()=>import('./components/ModalLogin'))
 const Header = () => {
@@ -36,6 +37,7 @@ const Header = () => {
   }, [isSigned]);
   const handleSignOut = async () => {
     // ReduxService.resetUser()
+    ReduxService.resetUser()
   }
   const handleLogin = async () => {
     setUserInfo({name:'diencong'})

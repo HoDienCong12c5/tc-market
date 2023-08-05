@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styled from 'styled-components';
 const ContainerImageNext = styled.div`
   overflow: hidden;
-  
 `;
 const ImgCustom = styled(Image)`
   width: 100% !important;
@@ -23,8 +22,8 @@ const ImageNext = ({
   return (
     <ContainerImageNext
       style={{
-        width: fullSize ? '100%' : width?.toString().includes('px') ? `${width}px` : width,
-        height: fullSize ? '100%' : height?.toString().includes('px') ? `${height}px` : height,
+        width: fullSize ? '100%' : width?.toString().includes('px') ? width : `${width}px` ,
+        height: fullSize ? '100%' : height?.toString().includes('px') ? height : `${height}px` ,
       }}
       className={className}
     >
