@@ -1,6 +1,6 @@
 import { BG_BTN } from '@/common/constant';
-import ButtonBasic from '@/Components/ButtonBasic';
-import { MediumText, NormalText } from '@/Components/TextSize';
+import ButtonBasic from '@/components/ButtonBasic';
+import { MediumText, NormalText } from '@/components/TextSize';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 
