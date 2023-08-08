@@ -1,5 +1,6 @@
 
-import { addDoc, deleteDoc, doc, getDoc, getDocs, limit, onSnapshot, orderBy, query, startAfter, updateDoc, where } from 'firebase/firestore'
+import { PAGE_SIZE_LIMIT } from '@/common/constant'
+import { addDoc, deleteDoc, doc, getDoc, getDocs, limit, onSnapshot, orderBy, query, startAfter, startAt, updateDoc, where } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 const FirebaseFun = (nameData, path = '') => {
   const formatData = (data) => {
@@ -80,10 +81,29 @@ const FirebaseFun = (nameData, path = '') => {
         totalPage:totalPage / totalData
       }
     },
-    getDataLimit: async (limitData = 10) => {
-      let citySnapshot = query(nameData, orderBy('from'), limit(limitData));
-      citySnapshot = await getDocs(citySnapshot)
-      return citySnapshot.docs.map((doc) => {
+    getDataLimit: async (pageNow = 1) => {
+      const numberItem = (pageNow === 1 ? 1 : pageNow - 1) * PAGE_SIZE_LIMIT
+
+      const first = query(nameData, orderBy('price'), limit(numberItem));
+      const documentSnapshots = await getDocs(first);
+      if(pageNow === 1){
+        return documentSnapshots.docs.map((doc) => {
+          return formatData(doc)
+        })
+      }
+
+      const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+
+
+      console.log({lastVisible});
+
+      const nextData = query(nameData,
+        orderBy('price'),
+        startAfter(lastVisible),
+        limit(PAGE_SIZE_LIMIT));
+
+      const dataLimit = await getDocs(nextData)
+      return dataLimit.docs.map((doc) => {
         return formatData(doc)
       })
     },
@@ -122,7 +142,7 @@ const FirebaseFun = (nameData, path = '') => {
     updateData: async (id, data, callBack) => {
       const temp = await doc(nameData, id)
       await updateDoc(temp, data)
-      callBack()
+      callBack & callBack()
     },
     deleteData: async (id) => {
       await deleteDoc(doc(nameData, id))

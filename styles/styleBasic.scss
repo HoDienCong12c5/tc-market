@@ -732,9 +732,6 @@ input#ratio {
 
 .flex {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-
   &-center {
     justify-content: center;
   }
@@ -854,4 +851,8 @@ input#ratio {
   .ant-tooltip-inner{
     background: transparent !important;
   }
+}
+.grid{
+  display: grid !important;
+  max-width: 100% !important;
 }

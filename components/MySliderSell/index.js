@@ -33,7 +33,8 @@ const MySliderSell = ({
   ...props
 }) => {
   const width = (sell / total) * 100
-  const messages = useSelector(state => state.locale.messages)
+  const messages = useSelector(state => state.app.language.messages)
+
   return (
     <ContainerMySliderSell {...props}>
       <TextMySliderSell >

@@ -42,6 +42,7 @@ const LandingPage = () => {
   )
 }
 export const getStaticProps = ({query})=>{
+  console.log('quuery server');
   return {props:{}}
 }
 export default LandingPage

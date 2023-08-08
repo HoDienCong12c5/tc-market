@@ -109,6 +109,8 @@ export const TYPE_CHART = {
   barChart:'barChart',
   pieChart:'pieChart'
 }
+
+export const PAGE_SIZE_LIMIT = 20
 export const PAGE_PROFILE = {
   myCard:'my-card',
   myProfile:'my-profile',

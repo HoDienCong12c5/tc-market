@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }) {
   const queryClient = useMemo(() => new QueryClient({
     defaultOptions: {
       queries: {
-        suspense: true,
         retry:2
       },
     },

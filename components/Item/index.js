@@ -6,9 +6,12 @@ import styled from 'styled-components';
 import ImageLazy from '../ImageLazy';
 import MySliderSell from '../MySliderSell';
 import { MediumText, NormalText } from '../TextSize';
+import ImageNext from '../ImageNext';
+import Image from 'next/image';
 const ContainerItem = styled.div`
     justify-content: center;
     align-items: center; 
+    width: 100%;
     max-width: 300px;
     min-width: ${props => props.isMinWidth ? '200px' : 'auto'};
     position: relative;
@@ -35,8 +38,12 @@ color:green;
    text-transform: uppercase;
    font-size: 1.75rem;
 `
-export const ImgCoffeeDetail = styled(ImageLazy)`
-  max-height: 260px;
+export const ImgCoffeeDetail = styled(ImageNext)`
+  img {
+    width: auto !important;
+    max-height: 260px !important;
+    position: relative !important;
+  }
 `;
 export const ContainerDiscount = styled.div`
     padding: 0px 5px;
@@ -49,17 +56,25 @@ export const TitleText = styled(MediumText)`
 
 const Item = ({
   item,
-  onClick
+  onClick,
+  key
 }) => {
-  const messages = useSelector(state => state.locale.messages)
+  const messages = useSelector(state => state.app.language.messages)
   return (
-    <ContainerItem>
+    <ContainerItem key={key}>
       <ContainerImg onClick={onClick}>
         {/* <ImgCoffeeDetail
           src={detectImageUrl(item?.image_main)}
           alt= {item.name}
         /> */}
+        {/* <Image
+          fill
+          src={detectImageUrl(item?.image_main)}
+          alt= {item.name}
+        /> */}
         <ImgCoffeeDetail
+          fill
+          fullSize
           src={detectImageUrl(item?.image_main)}
           alt= {item.name}
         />

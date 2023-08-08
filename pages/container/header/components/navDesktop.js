@@ -31,7 +31,7 @@ const NavDesktop = () => {
   //     label: (
   //       <H1Custom>
   //         <ButtonBasic
-  //           onClick={() => router.push('/CoffeeShop')}
+  //           onClick={() => router.push('/coffee')}
   //           className={styles['btn-item-menu']}
   //         >
   //           {messages.header.coffee}
@@ -77,7 +77,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom>
               <ButtonBasic
-                onClick={() => router.push('/CoffeeShop')}
+                onClick={() => router.push('/coffee')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.coffee}
@@ -128,12 +128,12 @@ const NavDesktop = () => {
     <ContainerNavDesktop >
       {
         listMenuNav.length > 0 && (
-          <MyMenu 
-          style={{width:'100%'}} 
-          onClick={onClick} 
-          selectedKeys={[current]} 
-          mode="horizontal" 
-          items={listMenuNav} 
+          <MyMenu
+            style={{width:'100%'}}
+            onClick={onClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={listMenuNav}
           />
 
         )

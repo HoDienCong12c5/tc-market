@@ -31,7 +31,8 @@ export const appSlice = createSlice({
       state.userInfo = action.payload
     },
     setLanguage: (state, action) => {
-      switch (action.payload) {
+      console.log({action});
+      switch (action.payload.la) {
       case 'en':
         state.language = localeEN
         break;

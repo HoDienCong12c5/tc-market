@@ -1,17 +1,16 @@
 
 import { REACT_QUERY } from '@/common/constant'
-import FirebaseService from '@/Services/FirebaseService'
+import { FirebaseCoffee } from '@/utils/firebaseConfig'
 import { useQuery } from '@tanstack/react-query'
 const getAllData = async({ queryKey })=>{
   const pageSelect = queryKey[1]
-  const data = await FirebaseService.coffeeShop.getLimit(pageSelect || 1)
-  return data
+  const data = await FirebaseCoffee.getDataLimit(pageSelect)
+  return data ?? null
 }
 const useGetAllCoffee = (page = 1) => {
   const { isLoading, error, data } = useQuery(
     [REACT_QUERY.GET_ALL_COFFEE,page],
-    getAllData,
-    { staleTime: 60000 }
+    getAllData
   )
 
   return {

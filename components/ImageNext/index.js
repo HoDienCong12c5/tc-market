@@ -17,6 +17,7 @@ const ImageNext = ({
   fullSize = false,
   className = '',
   classNameImg = '',
+  fill = false,
   ...props
 }) => {
   return (
@@ -28,13 +29,14 @@ const ImageNext = ({
       className={className}
     >
       <ImgCustom
+        fill={fill}
         className={classNameImg}
         loading="lazy"
         src={src}
         alt={alt}
         quality={quality}
-        width={'100%'}
-        height={'100%'}
+        width={fill ? undefined : '100%'}
+        height={fill ? undefined : '100%'}
         sizes={'min-width: 100%'}
         {...props}
       />

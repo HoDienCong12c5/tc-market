@@ -1,40 +1,28 @@
-import React from 'react'
-import { Affix } from 'antd'
-import SEO from './seo'
-import Header from './header'
-import MyModal from '@/components/MyModal'
-import Footer from './Footer'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import React from 'react';
+import { Affix } from 'antd';
+import SEO from './seo';
+import Header from './header';
+import 'react-toastify/dist/ReactToastify.css';
+import dynamic from 'next/dynamic';
+const MyModal = dynamic(import('@/components/MyModal'), { ssr: false });
+const Footer = dynamic(import('./Footer'), { ssr: false });
+const ToastContainer = dynamic(import('@/components/ToastWrapper'), { ssr: false });
 
-const Container = ({children}) => {
+const Container = ({ children }) => {
   return (
     <>
       <SEO />
-      <Affix >
+      <Affix>
         <Header />
-
       </Affix>
-      <main className='main-body' >
-        {children}
-      </main>
+      <main className="main-body">{children}</main>
+      {/* {children} */}
 
       <Footer />
       <MyModal />
-      <ToastContainer
-        position='bottom-right'
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='colored'
-      />
+      <ToastContainer />
     </>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;

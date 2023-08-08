@@ -1,8 +1,5 @@
-import { saveDataLocal } from '@/utils/function';
-import { KEY_STORE, OBSERVER_KEY } from '@/common/constant';
 import { setUserInfo } from '@/redux/slice/appSlice';
-import { FirebaseCoffee, FirebaseUser } from '@/utils/firebaseConfig'
-import observer from '@/utils/observer';
+import { FirebaseUser } from '@/utils/firebaseConfig'
 import store from '@/redux/configureStore';
 
 const firebaseService = {

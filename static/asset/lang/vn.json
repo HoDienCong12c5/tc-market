@@ -110,5 +110,9 @@
   "home":{
     "titleCoffee":"Coffee",
     "titlePod":"Pod Điện Tử"
+  },
+  "noti":{
+    "loginSuccess":"Đăng nhập thành công",
+    "loginError":"Sai tài khaorn hoặc mật khẩu"
   }
 }
