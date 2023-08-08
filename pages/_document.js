@@ -9,7 +9,7 @@ export default function Document() {
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
         {/* <link href='https://fonts.googleapis.com/css2?family=Aldrich&display=swap' rel='stylesheet' /> */}
         <link rel='manifest' href='/manifest.json' />
-        <meta name='description' content='Bridge Token' />
+        {/* <meta name='description' content='Bridge Token' /> */}
       </Head>
       <body>
         <Main />

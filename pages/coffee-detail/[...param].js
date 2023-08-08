@@ -1,22 +1,31 @@
 import { FirebaseCoffee } from '@/utils/firebaseConfig';
+import Head from 'next/head';
 import React from 'react'
 
-const CoffeeDetail = ({dataDetail,id,keyFirebase}) => {
-  console.log({dataDetail,id,keyFirebase});
+const CoffeeDetail = ({dataDetail,id,nameItem}) => {
+  console.log({dataDetail,id,nameItem});
 
   return (
-    <div>CoffeeDetail</div>
+    <>
+      <Head>
+        <meta title={`TC-Store - ${nameItem}`} />
+        <title>{`TC-Store - ${nameItem}`}</title>
+
+      </Head>
+      <div>CoffeeDetail</div>
+    </>
+
   )
 }
 export const getServerSideProps = async ({query})=>{
 
   const {param} = query
-  const data = await FirebaseCoffee.getDataByID(param[1])
+  // const data = await FirebaseCoffee.getDataByID(param[1])
 
   return {props:{
-    dataDetail:data,
+    dataDetail:null,
     id:param[1],
-    keyFirebase:param[0]
+    nameItem:param[0]
   }}
 }
 export default CoffeeDetail

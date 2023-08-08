@@ -37,7 +37,7 @@ const Coffee = () => {
   }, [])
 
   const clickItem = (item) => {
-    router.push(`/coffee-detail/${item.key}/${item.id}`)
+    router.push(`/coffee-detail/${item.name}/${item.id}`)
   }
   return (
     <>

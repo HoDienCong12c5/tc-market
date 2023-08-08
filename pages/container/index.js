@@ -11,7 +11,6 @@ const ToastContainer = dynamic(import('@/components/ToastWrapper'), { ssr: false
 const Container = ({ children }) => {
   return (
     <>
-      <SEO />
       <Affix>
         <Header />
       </Affix>
