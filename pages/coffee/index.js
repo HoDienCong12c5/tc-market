@@ -1,3 +1,4 @@
+import HeaderSeo from '@/components/HeaderSeo'
 import Item from '@/components/Item'
 import useGetAllCoffee from '@/hook/useGetAllCoffee'
 import { FirebaseCoffee } from '@/utils/firebaseConfig'
@@ -37,10 +38,16 @@ const Coffee = () => {
   }, [])
 
   const clickItem = (item) => {
-    router.push(`/coffee-detail/${item.name}/${item.id}`)
+    router.push(`/coffee-detail/${item.name}/${item.id}`,null,{
+      scroll:true
+    })
   }
   return (
     <>
+      <HeaderSeo
+        title={'Tc Store | Cà phê Tây Nguyên'}
+        description={'Tc Store | Cà phê Tây Nguyên'}
+      />
       <div className='grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-[15px] '>
         {
           listAllNFT?.map(item =>{

@@ -4,6 +4,16 @@ export const KEY_STORE = {
   SET_USER:'SET_USER',
   SET_LANGUAGE:'SET_LANGUAGE',
 }
+
+export const ROUTE_PAGE = {
+  home:'/',
+  coffee:'/coffee',
+  contact:'/contact',
+  myCart:'/my-cart',
+  about:'/about',
+  landingPage:'landing-page'
+}
+
 export const REQUEST_TYPE = {
   POST: 'POST',
   GET: 'GET',

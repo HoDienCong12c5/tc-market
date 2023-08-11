@@ -112,6 +112,7 @@
     "titlePod":"Pod Điện Tử"
   },
   "noti":{
+    "logOut":"Bạn đã đăng xuất",
     "loginSuccess":"Đăng nhập thành công",
     "loginError":"Sài user name hoặc password"
   }

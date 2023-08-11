@@ -37,19 +37,7 @@ const ModalLogin = () => {
     numberPhone :'',
     passWord:''
   });
-  useEffect(() => {
-    if(isSigned && modal){
-      closeModal()
-    }
 
-    return ()=>{setLoadingLogin(false)}
-  }, [isSigned])
-
-  useEffect(() => {
-    return ()=>{
-      observer.removeListener(OBSERVER_KEY.LOGIN)
-    }
-  }, [isSigned])
   const handleLogin = async () => {
     let login = false
     setLoadingLogin(true)

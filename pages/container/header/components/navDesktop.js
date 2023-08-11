@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import styles from '../style.module.scss'
 import MyMenu from '@/components/MyMenu';
+import userUserInfo from '@/hook/useUserInfor';
+import { ROUTE_PAGE } from '@/common/constant';
 const ContainerNavDesktop = styled.div`
     display: flex;
     flex:1;
@@ -25,6 +27,7 @@ const NavDesktop = () => {
   const [listMenuNav, setListMenuNav] = useState([]);
   const messages = useSelector(state=>state?.app?.language?.messages)
   const [current, setCurrent] = useState('mail');
+  const {isSigned} = userUserInfo()
 
   // const arrNav = [
   //   {
@@ -116,10 +119,28 @@ const NavDesktop = () => {
           key: 'contact',
         },
       ]
+      if(isSigned){
+        arrNav.push(
+          {
+            label: (
+              <H1Custom>
+                <ButtonBasic
+                  onClick={() => router.push(ROUTE_PAGE.myCart)}
+                  className={styles['btn-item-menu']}
+                >
+                  {messages.header.cart}
+                </ButtonBasic>
+              </H1Custom>
+
+            ),
+            key: 'my-cart',
+          },
+        )
+      }
       setListMenuNav(arrNav)
     }
     initMenuNav()
-  },[])
+  },[isSigned])
   const onClick = (e) => {
     console.log('click ', e);
     setCurrent(e.key);

@@ -8,13 +8,15 @@ import useModal from '@/hook/useModal';
 import { useSelector } from 'react-redux';
 import useUserInfo from '@/hook/useUserInfor';
 import ButtonBasic from '@/components/ButtonBasic';
-import { DownOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { DownOutlined, MenuOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Button, Drawer, Dropdown, Space } from 'antd';
 import styles from './style.module.scss'
 import { useRouter } from 'next/router';
 import { setUserInfo } from '@/redux/slice/appSlice';
 // import NavDesktop from './components/navDesktop';
 import ReduxService from '@/redux/reduxService';
+import { ROUTE_PAGE } from '@/common/constant';
+import { showNotiToastError } from '@/utils/function';
 const ModalLogin = dynamic(() => import('./components/ModalLogin'),{ssr:false})
 const NavDesktop = dynamic(() => import('./components/navDesktop'),{ssr:false})
 
@@ -37,14 +39,19 @@ const Header = () => {
 
   }, [isSigned]);
   const handleSignOut = async () => {
-    // ReduxService.resetUser()
     ReduxService.resetUser()
+    showNotiToastError(messages.noti.logOut)
   }
   const handleLogin = async () => {
     setUserInfo({ name: 'diencong' })
     openModal({
       content: <ModalLogin />,
     })
+  }
+
+  const onClickMenuMobile = (key) => {
+    setShowMenuMobile(false)
+    router.push(key)
   }
   const renderDesktop = () => {
     const items = [
@@ -97,6 +104,15 @@ const Header = () => {
       </>
     )
   }
+
+  const renderItemMenuMobile = (keyPage,title) => {
+    return <ButtonBasic
+      onClick={() => onClickMenuMobile(keyPage)}
+      className={styles['btn-item-menu']}
+    >
+      {title}
+    </ButtonBasic>
+  }
   const renderMobile = () => {
     return (
       <>
@@ -118,7 +134,7 @@ const Header = () => {
                 </div>
               )
             }
-            <UnorderedListOutlined
+            <MenuOutlined
               onClick={() => setShowMenuMobile(true)}
               className='ml-[10px]'
               style={{ fontSize: 30 }}
@@ -142,31 +158,18 @@ const Header = () => {
           }
         >
           <div className='w-full flex items-start flex-col ' >
-            <ButtonBasic
-              onClick={() => router.push('/coffee')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.coffee}
-            </ButtonBasic>
-
-            <ButtonBasic
-              onClick={() => router.push('/about')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.about}
-            </ButtonBasic>
-            <ButtonBasic
-              onClick={() => router.push('/Contact')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.contact}
-            </ButtonBasic>
-            <ButtonBasic
-              onClick={() => router.push('/Contact')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.contact}
-            </ButtonBasic>
+            {
+              renderItemMenuMobile(ROUTE_PAGE.coffee,messages.header.coffee)
+            }
+            {
+              renderItemMenuMobile(ROUTE_PAGE.about,messages.header.about)
+            }
+            {
+              renderItemMenuMobile(ROUTE_PAGE.contact,messages.header.contact)
+            }
+            {
+              renderItemMenuMobile(ROUTE_PAGE.myCart,messages.header.cart)
+            }
           </div>
 
         </Drawer>

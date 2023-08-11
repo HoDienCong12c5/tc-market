@@ -1,6 +1,5 @@
 import React from 'react';
 import { Affix } from 'antd';
-import SEO from './seo';
 import Header from './header';
 import 'react-toastify/dist/ReactToastify.css';
 import dynamic from 'next/dynamic';
@@ -18,7 +17,7 @@ const Container = ({ children }) => {
       {/* {children} */}
 
       <Footer />
-      <MyModal />
+      <MyModal />f
       <ToastContainer />
     </>
   );

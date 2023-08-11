@@ -43,6 +43,7 @@ export const ImgCoffeeDetail = styled(ImageNext)`
     width: auto !important;
     max-height: 260px !important;
     position: relative !important;
+    height: auto !important;
   }
 `;
 export const ContainerDiscount = styled.div`
@@ -63,15 +64,6 @@ const Item = ({
   return (
     <ContainerItem key={key}>
       <ContainerImg onClick={onClick}>
-        {/* <ImgCoffeeDetail
-          src={detectImageUrl(item?.image_main)}
-          alt= {item.name}
-        /> */}
-        {/* <Image
-          fill
-          src={detectImageUrl(item?.image_main)}
-          alt= {item.name}
-        /> */}
         <ImgCoffeeDetail
           fill
           fullSize
