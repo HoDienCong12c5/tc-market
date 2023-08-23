@@ -8,7 +8,7 @@ import { MediumText } from '../TextSize'
 const BtnBack = ({main,pageNow,...props}) => {
   const router = useRouter()
   return (
-    <div className='w-full mb-20 mt-10 hover ' onClick={()=>router.back()} {...props}>
+    <div className='w-full mb-20 pt-[24px] hover ' onClick={()=>router.back()} {...props}>
       <Row style={{gap:5}}>
         <Image
           loading='lazy'

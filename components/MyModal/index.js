@@ -28,6 +28,7 @@ const ModalWrapper = () => {
     <Modal
       {...defaultModalConfig}
       {...modal}
+      {...modal?.option}
       centered
       style={{minWidth:520}}
       open={!!modal}

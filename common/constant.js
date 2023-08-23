@@ -120,7 +120,7 @@ export const TYPE_CHART = {
   pieChart:'pieChart'
 }
 
-export const PAGE_SIZE_LIMIT = 20
+export const PAGE_SIZE_LIMIT = 15
 export const PAGE_PROFILE = {
   myCard:'my-card',
   myProfile:'my-profile',

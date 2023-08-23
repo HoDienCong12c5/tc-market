@@ -2,7 +2,7 @@ import { FirebaseCoffee } from '@/utils/firebaseConfig';
 import React, { useEffect, useState } from 'react'
 import MyLoading from '@/components/MyLoading';
 import Media from 'react-media';
-import { ContainerDiscos, ImageItemMain } from './styled';
+import { AmountCoffee, ButtonEx, ContainerDiscos, ImageItemMain } from './styled';
 import BtnBack from '@/components/BtnBack';
 import { MediumText, NormalText } from '@/components/TextSize';
 import useModal from '@/hook/useModal';
@@ -12,11 +12,12 @@ import { numberWithCommas, roundingNumber } from '@/utils/function';
 import ButtonBasic from '@/components/ButtonBasic';
 import ImageNext from '@/components/ImageNext';
 import { images } from '@/common/images';
-import { Button } from 'antd';
-import ModalBuy from './component/modalBuy';
+import { Button, Row } from 'antd';
+// import ModalBuy from './component/modalBuy';
 import HeaderSeo from '@/components/HeaderSeo';
-
-const CoffeeDetail = ({id,nameItem}) => {
+import dynamic from 'next/dynamic';
+const ModalBuy = dynamic(import('./component/modalBuy'), { ssr: false, suspense: true })
+const CoffeeDetail = ({ id, nameItem }) => {
   const { openModal, closeModal } = useModal()
   const { isSigned } = userUserInfo()
   const messages = useSelector(state => state.app.language.messages)
@@ -25,17 +26,18 @@ const CoffeeDetail = ({id,nameItem}) => {
   const [listImage, setListImage] = useState(null)
   const [loading, setLoading] = useState(true)
   const [isLike, setIsLike] = useState(false)
+  const [amount, setAmount] = useState(1);
 
   useEffect(() => {
-    const getData = async() => {
+    const getData = async () => {
       const data = await FirebaseCoffee.getDataByID(id)
-      if(data){
+      if (data) {
         setCoffeeDetail(data)
         setLoading(false)
       }
-      console.log({data});
+      console.log({ data });
     }
-    const getDataListImage = async() => {
+    const getDataListImage = async () => {
       // const data = await FirebaseCoffee.getDataByID(id)
       // if(data){
       //   setCoffeeDetail(data)
@@ -49,8 +51,25 @@ const CoffeeDetail = ({id,nameItem}) => {
 
   const buyCoffee = () => {
     openModal({
-      content:<ModalBuy />
+      content: <ModalBuy coffee={coffeeDetail} number={amount} />
     })
+  }
+  const renderAmount = ()=>{
+    const plusNumber = ()=>{
+      if((coffeeDetail.totalNumber - coffeeDetail.sell) > amount){
+        setAmount(amount + 1)
+      }
+    }
+    return (
+      <Row align={'middle'}>
+        <MediumText className='mr-10'>
+          {`${messages.textPopular.amount}:`}
+        </MediumText>
+        <ButtonEx onClick={()=>{amount > 1 && setAmount(amount - 1)}}>-</ButtonEx>
+        <AmountCoffee>{amount}</AmountCoffee>
+        <ButtonEx onClick={plusNumber}>+</ButtonEx>
+      </Row>
+    )
   }
   return (
     <>
@@ -66,14 +85,17 @@ const CoffeeDetail = ({id,nameItem}) => {
           <>
             <BtnBack />
             <div className='grid grid-cols-1 gap-20 md:grid-cols-2'>
-              <div style={{position:'relative'}}>
+              <div style={{ position: 'relative' }}>
                 <ImageItemMain
                   fill
                   src={coffeeDetail.image_main}
                 />
-                <ContainerDiscos>
+                {/* <ContainerDiscos >
+                  <span className='bg-green-200'>
                   hasdjkasghdj
-                </ContainerDiscos>
+                  </span>
+
+                </ContainerDiscos> */}
               </div>
               <div className='flex flex-col gap-20'>
                 <h1 className='text-[36px] mb-0'>
@@ -92,14 +114,15 @@ const CoffeeDetail = ({id,nameItem}) => {
                   {`${messages.coffeeDetail.weight}: ${coffeeDetail.weight}`}
                 </MediumText>
                 <MediumText>
-                  {'Free ship : Free ship in since 15km'}
+                  {`Free ship: ${messages.textPopular.freeShip_des} `}
                 </MediumText>
-                <div className='flex text-[26px] gap-3'>
+                {renderAmount()}
+                <div className='flex text-[26px] gap-3 '>
                   <div >
                     {messages.coffeeDetail.price}:
                   </div>
                   <div >
-                    {`${numberWithCommas(coffeeDetail.price)} VNĐ`}
+                    {`${numberWithCommas(coffeeDetail.price * amount)} VNĐ`}
                   </div>
                 </div>
                 <div className='flex gap-15'>
@@ -126,13 +149,15 @@ const CoffeeDetail = ({id,nameItem}) => {
 
   )
 }
-export const getServerSideProps = async ({query})=>{
+export const getServerSideProps = async ({ query }) => {
 
-  const {param} = query
+  const { param } = query
 
-  return {props:{
-    id:param[1],
-    nameItem:param[0]
-  }}
+  return {
+    props: {
+      id: param[1],
+      nameItem: param[0]
+    }
+  }
 }
 export default CoffeeDetail

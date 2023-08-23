@@ -12,6 +12,7 @@ const nextConfig = {
   },
   images: {
     domains: [
+      'images.unsplash.com',
       'ipfs.pantograph.app',
       'ipfs.pantograph.app/ipfs',
       'ipfsgw.bountykinds.com',

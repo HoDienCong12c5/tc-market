@@ -18,6 +18,7 @@ const useModal = () => {
       background = '#ffffff',
       opacity = 1,
       boxShadow = null,
+      option = {}
     }) => {
       dispatch(
         setModal({
@@ -33,7 +34,8 @@ const useModal = () => {
           boxShadow,
           maskClosable:true,
           closable:true,
-          keyboard:true
+          keyboard:true,
+          option
         })
       )
     },

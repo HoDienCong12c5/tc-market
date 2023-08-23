@@ -62,7 +62,7 @@ const ModalLogin = () => {
   return (
     <ContentLogin >
       <Form
-        name="basicform"
+        name="Form-Login"
         form={form}
         initialValues={formData}
         style={{ width: '100%' }}

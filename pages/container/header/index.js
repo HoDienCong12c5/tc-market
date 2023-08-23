@@ -24,7 +24,7 @@ const Header = () => {
   const router = useRouter()
 
   const { openModal, closeModal } = useModal()
-  const { isSigned, name } = useUserInfo()
+  const { isSigned, userData } = useUserInfo()
   const messages = useSelector(state => state.app.language.messages)
   const modal = useSelector(state => state.app.modal)
 
@@ -86,7 +86,7 @@ const Header = () => {
               <BtnAccUser className={styles['bnt-login']} >
                 <ImageNext className={'h-25 w-25 mr-5'} src={images.icon.avatarDefault} />
                 <Space>
-                  {name}
+                  {userData?.name}
                   <DownOutlined />
                 </Space>
               </BtnAccUser>
@@ -125,7 +125,7 @@ const Header = () => {
                 <>
                   <ImageNext className={'h-25 w-25 mr-5'} src={images.icon.avatarDefault} />
                   <Space>
-                    {name}
+                    {userData?.name}
                   </Space>
                 </>
               ) : (
