@@ -6,6 +6,7 @@ import {
   setLogLevel
 } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { getMessaging,getToken } from 'firebase/messaging';
 class FirebaseConfig{
   static firebase
   constructor(){
@@ -13,14 +14,14 @@ class FirebaseConfig{
   }
   static initFirebase (){
     const firebaseConfig = {
-      apiKey: process.env.NEXT_PUBLIC_API_KEY,
-      authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
-      databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
-      projectId: process.env.NEXT_PUBLIC_PROJECT_ID_FB,
-      storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-      messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDER_ID,
-      appId: process.env.NEXT_PUBLIC_APPID,
-      measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
+      apiKey: 'AIzaSyDxEJyOrx_vEo9bI0DcgUL0ajgZVvKXT-M',
+      authDomain: 'mlem-coffe.firebaseapp.com',
+      databaseURL: 'https://mlem-coffe-default-rtdb.firebaseio.com',
+      projectId: 'mlem-coffe',
+      storageBucket: 'mlem-coffe.appspot.com',
+      messagingSenderId: '199865841313',
+      appId: '1:199865841313:web:a2e7bab7874e65104fa2e0',
+      measurementId: 'G-E236RFEPF9'
     };
     this.firebase = initializeApp(firebaseConfig)
     return this.firebase;
@@ -39,9 +40,18 @@ class FirebaseConfig{
     const collectionData = collection(getStorage(this.firebase), nameData)
     return FirebaseFun(collectionData)
   }
+  static async cloudMess(){
+    const app = this.initFirebase()
+    const mess = getMessaging(app)
+    const token = await getToken(mess)
+    console.log({token});
+    return token
+  }
+
 }
 export const FirebaseCoffee = FirebaseConfig.getFireStore(DATA_FIREBASE.coffee)
 export const FirebaseUser = FirebaseConfig.getFireStore(DATA_FIREBASE.user)
 export const FirebaseCart = FirebaseConfig.getFireStore(DATA_FIREBASE.cart)
 export const FirebaseAvatar = FirebaseConfig.getFireStore(DATA_FIREBASE.avatar)
 export const FirebaseContact = FirebaseConfig.getFireStore(DATA_FIREBASE.contact)
+export const FirebaseMess = FirebaseConfig.cloudMess()
