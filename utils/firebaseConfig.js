@@ -44,9 +44,9 @@ class FirebaseConfig{
     const app = this.initFirebase()
     const mess = getMessaging(app)
     const token = await getToken(mess,{
-      vapidKey:'BC272vuHZ_2W-gtzlCcal_7XuiX32b84A9YT3THUo8fGI-e4L7vzF54oYDFRFxoKT2ToFj3Q4uwpuMQaQ-19kXc'
+      vapidKey: 'BC272vuHZ_2W-gtzlCcal_7XuiX32b84A9YT3THUo8fGI-e4L7vzF54oYDFRFxoKT2ToFj3Q4uwpuMQaQ-19kXc'
     })
-    console.log({token});
+    console.log({token,mess});
     return token
   }
 
