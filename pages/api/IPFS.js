@@ -18,7 +18,6 @@ class IPFSApi{
     try {
       const ipfs = await this.createIPFS()
       console.log({ipfs});
-      ipfs.
       const result = await ipfs.add(file);
       return result?.path
     } catch (error) {
