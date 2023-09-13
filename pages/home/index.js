@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container } from './styled'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
@@ -6,6 +6,22 @@ import HeaderSeo from '@/components/HeaderSeo'
 import BannerHome from './Components/Banner'
 
 const HomeScreen = () => {
+  useEffect(() => {
+    function requestPermission () {
+      console.log('Requesting permission...')
+      Notification.requestPermission().then(async (permission) => {
+        if (permission === 'granted') {
+          console.log('Notification permission granted.')
+          const mes = await firebaseMess()
+          console.log({ mes })
+        }
+      })
+    }
+    requestPermission()
+
+
+  }, [ ])
+
   const messages = useSelector(state=>state.app.language)
   const renderDesktop = () => {
     return <>
