@@ -54,4 +54,4 @@ export const FirebaseUser = FirebaseConfig.getFireStore(DATA_FIREBASE.user)
 export const FirebaseCart = FirebaseConfig.getFireStore(DATA_FIREBASE.cart)
 export const FirebaseAvatar = FirebaseConfig.getFireStore(DATA_FIREBASE.avatar)
 export const FirebaseContact = FirebaseConfig.getFireStore(DATA_FIREBASE.contact)
-export const FirebaseMess = FirebaseConfig.cloudMess()
+export const FirebaseMess = FirebaseConfig

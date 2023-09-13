@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import HeaderSeo from '@/components/HeaderSeo'
 import BannerHome from './Components/Banner'
+import { FirebaseMess } from '@/utils/firebaseConfig'
 
 const HomeScreen = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const HomeScreen = () => {
       Notification.requestPermission().then(async (permission) => {
         if (permission === 'granted') {
           console.log('Notification permission granted.')
-          const mes = await firebaseMess()
+          const mes = await FirebaseMess.cloudMess()
           console.log({ mes })
         }
       })
