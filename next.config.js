@@ -20,7 +20,7 @@ const nextConfig = {
     ],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'PRODUCTION',
+    // removeConsole: process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'PRODUCTION',
     styledComponents: {
       displayName: true,
       ssr: true,
