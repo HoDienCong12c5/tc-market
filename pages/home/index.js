@@ -4,23 +4,19 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import HeaderSeo from '@/components/HeaderSeo'
 import BannerHome from './Components/Banner'
-import { FirebaseMess } from '@/utils/firebaseConfig'
+import { requestPermission } from '@/utils/firebaseMess'
 
 const HomeScreen = () => {
   const [tokenFirebase, settokenFirebase] = useState(null)
   useEffect(() => {
-    function requestPermission () {
-      console.log('Requesting permission...')
-      Notification.requestPermission().then(async (permission) => {
-        if (permission === 'granted') {
-          console.log('Notification permission granted.')
-          const mes = await FirebaseMess.cloudMess()
-          settokenFirebase(mes)
-          console.log({ mes })
-        }
-      })
+    if (
+      'Notification' in window &&
+      'serviceWorker' in navigator &&
+      'PushManager' in window
+    ) {
+      requestPermission()
+
     }
-    requestPermission()
 
 
   }, [ ])

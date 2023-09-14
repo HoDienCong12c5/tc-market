@@ -6,13 +6,13 @@ import {
   setLogLevel
 } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-import { getMessaging,getToken } from 'firebase/messaging';
-class FirebaseConfig{
+import { getMessaging, getToken } from 'firebase/messaging';
+class FirebaseConfig {
   static firebase
-  constructor(){
+  constructor() {
 
   }
-  static initFirebase (){
+  static initFirebase() {
     const firebaseConfig = {
       apiKey: 'AIzaSyDxEJyOrx_vEo9bI0DcgUL0ajgZVvKXT-M',
       authDomain: 'mlem-coffe.firebaseapp.com',
@@ -26,26 +26,26 @@ class FirebaseConfig{
     this.firebase = initializeApp(firebaseConfig)
     return this.firebase;
   }
-  static getFireStore(nameData){
-    if(!this.firebase){
+  static getFireStore(nameData) {
+    if (!this.firebase) {
       this.initFirebase()
     }
     const collectionData = collection(getFirestore(this.firebase), nameData)
     return FirebaseFun(collectionData)
   }
-  static getFireStorage(nameData){
-    if(!this.firebase){
+  static getFireStorage(nameData) {
+    if (!this.firebase) {
       this.initFirebase()
     }
     const collectionData = collection(getStorage(this.firebase), nameData)
     return FirebaseFun(collectionData)
   }
-  static async cloudMess(){
+  static async cloudMess() {
     const mess = getMessaging()
-    const token = await getToken(mess,{
+    const token = await getToken(mess, {
       vapidKey: 'BC272vuHZ_2W-gtzlCcal_7XuiX32b84A9YT3THUo8fGI-e4L7vzF54oYDFRFxoKT2ToFj3Q4uwpuMQaQ-19kXc'
     })
-    console.log({token,mess});
+    console.log({ token, mess });
     return token
   }
 
