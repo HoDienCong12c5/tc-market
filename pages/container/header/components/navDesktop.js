@@ -29,50 +29,6 @@ const NavDesktop = () => {
   const [current, setCurrent] = useState('mail');
   const {isSigned} = userUserInfo()
 
-  // const arrNav = [
-  //   {
-  //     label: (
-  //       <H1Custom>
-  //         <ButtonBasic
-  //           onClick={() => router.push('/coffee')}
-  //           className={styles['btn-item-menu']}
-  //         >
-  //           {messages.header.coffee}
-  //         </ButtonBasic>
-  //       </H1Custom>
-
-  //     ),
-  //     key: 'coffee',
-  //   },
-  //   {
-  //     label: (
-  //       <H1Custom >
-  //         <ButtonBasic
-  //           onClick={() => router.push('/about')}
-  //           className={styles['btn-item-menu']}
-  //         >
-  //           {messages.header.about}
-  //         </ButtonBasic>
-  //       </H1Custom>
-
-  //     ),
-  //     key: 'about',
-  //   },
-  //   {
-  //     label: (
-  //       <H1Custom >
-  //         <ButtonBasic
-  //           onClick={() => router.push('/Contact')}
-  //           className={styles['btn-item-menu']}
-  //         >
-  //           {messages.header.contact}
-  //         </ButtonBasic>
-  //       </H1Custom>
-
-  //     ),
-  //     key: 'contact',
-  //   },
-  // ]
   useEffect(() => {
     const initMenuNav = () => {
       const arrNav = [

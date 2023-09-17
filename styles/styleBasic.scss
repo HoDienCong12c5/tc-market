@@ -1,9 +1,14 @@
+
+
+.container-main-body {
+  background: #f2ece1 !important;
+}
+
 .main-body {
   max-width: 1550px;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 50px);
-  background: #f2ece1 !important;
   padding: 0px 50px;
   @media screen and (max-width: 768px) {
     padding: 0px 20px;
@@ -492,7 +497,7 @@ input#ratio {
 }
 
 .ant-input-affix-wrapper {
-  border: 1px solid #2b5540 !important;
+  border: 0px solid #2b5540 !important;
 }
 
 .input {
@@ -863,4 +868,6 @@ input#ratio {
   display: flex;
   justify-content: center;
   margin-top: 24px;
+}
+.default-nav{
 }

@@ -4,11 +4,14 @@ import Header from './header';
 import 'react-toastify/dist/ReactToastify.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 const MyModal = dynamic(import('@/components/MyModal'), { ssr: false });
 const Footer = dynamic(import('./Footer'), { ssr: false });
 const ToastContainer = dynamic(import('@/components/ToastWrapper'), { ssr: false });
 
 const Container = ({ children }) => {
+  const router = useRouter()
+
   return (
     <>
       <Head>
@@ -34,7 +37,16 @@ const Container = ({ children }) => {
       <Affix>
         <Header />
       </Affix>
-      <main className="main-body">{children}</main>
+      <main className="container-main-body">
+        {
+          router.asPath === '/'
+            ? children
+            : <div className='main-body '>
+              {children}
+            </div>
+        }
+
+      </main>
       {/* {children} */}
 
       <Footer />

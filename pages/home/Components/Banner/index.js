@@ -6,9 +6,9 @@ import 'react-slideshow-image/dist/styles.css';
 import styled from 'styled-components';
 const ImgCustom = styled(Image)`
   position: relative !important;
+  max-height: calc(100vh - 60px);
   img{
-  position: relative !important;
-
+    position: relative !important;
   }
 `;
 const BannerHome = () => {
@@ -19,14 +19,14 @@ const BannerHome = () => {
   ];
 
   return (
-    <Slide cssClass='slider-show' slidesToScroll={1} indicators={true}>
+    <Slide cssClass='slider-show max-w-[1550px]' slidesToScroll={1} indicators={true}>
       {images.map((each, index) => (
         <div key={index} style={{ width: '100%' }}>
-          {/* <img
+          <ImgCustom
             fill
             alt="Slide Image"
             src={each}
-          /> */}
+          />
           <div className='w-500 h-500' style={{background:'red'}}></div>
         </div>
       ))}

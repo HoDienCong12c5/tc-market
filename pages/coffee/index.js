@@ -45,7 +45,7 @@ const Coffee = () => {
     })
   }
   const render = () => {
-    return <>
+    return <div className='w-full pt-10'>
       <div className='grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-[15px] '>
         {
           listAllNFT?.data?.map(item =>{
@@ -58,7 +58,7 @@ const Coffee = () => {
         }
       </div>
       <MyPagination onChange={(page=>setpageSelected(page))} totalItem={listAllNFT?.total} currentPage={listAllNFT?.page} />
-    </>
+    </div>
   }
   return (
     <>

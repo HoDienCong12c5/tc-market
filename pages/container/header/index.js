@@ -17,7 +17,8 @@ import { setUserInfo } from '@/redux/slice/appSlice';
 import ReduxService from '@/redux/reduxService';
 import { ROUTE_PAGE } from '@/common/constant';
 import { showNotiToastError } from '@/utils/function';
-const ModalLogin = dynamic(() => import('./components/ModalLogin'),{ssr:false})
+import ModalLogin from './components/ModalLogin';
+// const ModalLogin = dynamic(() => import('./components/ModalLogin'),{ssr:false})
 const NavDesktop = dynamic(() => import('./components/navDesktop'),{ssr:false})
 
 const Header = () => {

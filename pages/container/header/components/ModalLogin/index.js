@@ -1,14 +1,12 @@
 
 import { showNotiToastError, showNotiToastSuccess } from '@/utils/function';
-import { OBSERVER_KEY } from '@/common/constant';
 import ButtonBasic from '@/components/ButtonBasic';
 import MyInput from '@/components/MyInput';
 import useModal from '@/hook/useModal';
 import userUserInfo from '@/hook/useUserInfor';
 import firebaseService from '@/pages/api/firebaseService';
-import observer from '@/utils/observer';
 import { Checkbox, Col, Form, Row } from 'antd';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 

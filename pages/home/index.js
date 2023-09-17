@@ -5,32 +5,21 @@ import { useSelector } from 'react-redux'
 import HeaderSeo from '@/components/HeaderSeo'
 import BannerHome from './Components/Banner'
 import { requestPermission } from '@/utils/firebaseMess'
+import InfoHome from './Components/InfoHome'
 
 const HomeScreen = () => {
-  const [tokenFirebase, settokenFirebase] = useState(null)
-  useEffect(() => {
-    if (
-      'Notification' in window &&
-      'serviceWorker' in navigator &&
-      'PushManager' in window
-    ) {
-      requestPermission()
 
-    }
-
-
-  }, [ ])
 
   const messages = useSelector(state=>state.app.language)
   const renderDesktop = () => {
     return <>
       <BannerHome />
+      <InfoHome />
     </>
   }
   return (
     <Container >
       <HeaderSeo />
-      {tokenFirebase}
       {renderDesktop()}
       <div>
         <Image src={'https://ipfs.pantograph.app/ipfs/QmPvLUPSEDbR2Qoo6J83aMfPnpBYeF5e4MhrjH853JJcF8?filename=MinionDevil_ANIMA.png'} width={150} height={150}/>
