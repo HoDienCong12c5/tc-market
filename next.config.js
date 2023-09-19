@@ -30,7 +30,11 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  workerThreads:true,
+  gzipSize:true,
   swcMinify: true,
+  staticPageGenerationTimeout:10,
+  reactStrictMode:true,
   // env: {
   //   NEXT_PUBLIC_ENV: 'PRODUCTION', //your next configs goes here
   //   NEXT_PUBLIC_API_KEY:'AIzaSyDxEJyOrx_vEo9bI0DcgUL0ajgZVvKXT-M',
