@@ -1,8 +1,7 @@
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { configureStore,combineReducers, compose } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import appReducer from './slice/appSlice'
-import { KEY_STORE } from '@/common/constant'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 // import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2'
 const persistConfig = {
