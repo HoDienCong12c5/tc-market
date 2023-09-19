@@ -15,15 +15,14 @@ const Container = ({ children }) => {
   return (
     <>
       <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta property="og:type" content="website"/>
-        <meta name="robots" content= "index, follow" />
+
         <meta property="twitter:card" content="summary_large_image"/>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta property="og:type" content="website"/>
         <meta name="robots" content= "index, follow" />
+        <meta name="theme-color" content="#ffff"/>
         {/* <meta name="twitter:app:name:iphone" content="twitter_app" />
         <meta name="twitter:app:id:iphone" content="twitter_app://iphone" />
         <meta name="twitter:app:id:ipad" content="twitter_app://ipad" />

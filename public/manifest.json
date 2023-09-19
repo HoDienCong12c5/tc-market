@@ -40,10 +40,10 @@
       "density": "4.0"
     }
   ],
-  "start_url": "https://bridge-nft.w3w.app/",
+  "start_url": "/",
   "scope": "/",
   "display": "tc_tore",
   "orientation": "portrait",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  "theme_color": "#f2ece1",
+  "background_color": "#f2ece1"
 }
