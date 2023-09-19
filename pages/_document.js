@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
   render(){
     return <Html>
       <Head>
-        <html lang={'vn'}/>
+        <html >
         <link rel='preconnect' href='https:fonts.gstatic.com' crossOrigin='true' />
 
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
